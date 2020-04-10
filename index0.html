@@ -1,0 +1,64 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content = "ie=edge">
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!--Babel convert to JS Browser-->
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script type="text/babel">
+            class App extends React.Component{
+                state = {
+                        name: 'Ryu',
+                        age: 30
+                }
+                handleClick = (e) => { // e like evnt - in this case: pressing button cibsike; arrow func -> remember scope of "thisss"
+                    //console.log(e.target);
+                    //this.state.name = 'Ryu' + Math.random(); bad practice
+                    this.setState({
+                        name: 'Ryu' //+ Math.random()
+                    })
+                    //this.setState2({
+                    //    name: 'Ziomek' + Math.random()
+                    //}) not working - only one state?
+                    console.log(this.state)
+                } //myfun
+                handleMouseOver = (e) => {
+                    console.log(e.target, e.pageX)
+                }
+                handleCopy = (e) => {
+                    console.log('Try being orignal for once')
+                }
+                //state2 = {
+                //    name: 'Ziomek',
+                //    age: 30
+                //}
+                //state2 = {
+                //    name: 'Dupa',
+                //    age: 30
+                //}
+                //this.state2.name = 'Dupa'
+                render(){
+                    return (
+                        <div className="app-content"> {/*One element as a root element - return;
+                                                        Additional div makes it dynamic*/}
+                            <h1>Hey, ninjas</h1>
+                            <p>{Math.random() * 10}</p>
+                            <p>My name is: { this.state.name} and I am {this.state.age}</p>
+                            <button onClick={this.handleClick}>Click Me</button>
+                            <button onMouseOver={this.handleMouseOver}>Hover me</button>
+                            <p onCopy= {this.handleCopy}> What we think, we become</p>
+                        </div>  
+                    )
+                }
+            }
+            ReactDOM.render(<App />, document.getElementById('app'))
+        </script>
+
+    </body>
+</html>

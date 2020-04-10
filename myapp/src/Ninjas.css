@@ -1,0 +1,10 @@
+body{ /*work everywhere*/
+    background: white;
+    transition: all 1s; /*React takes care of all prefix about "transition"*/
+}
+
+.ninjas form{ /*work for Ninjas.js - there is no form*/
+    background: white;
+    padding: 20px;
+}
+
